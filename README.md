@@ -1,2 +1,117 @@
-# My-first-project
-My first project
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Plan | SaaS Study Productivity</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <header>
+            <div class="brand">
+                <h1><i class="fas fa-rocket"></i> Focus Plan</h1>
+                <p id="date-display">-- February 2024</p>
+            </div>
+            <div class="controls">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <section class="quote-container">
+            <p id="quote-text">"Success is the sum of small efforts, repeated day in and day out."</p>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="summary-card">
+                <span class="label">Total Tasks</span>
+                <span id="total-val" class="value">0</span>
+            </div>
+            <div class="summary-card">
+                <span class="label">Completed</span>
+                <span id="completed-val" class="value" style="color: var(--success);">0</span>
+            </div>
+            <div class="summary-card">
+                <span class="label">Pending</span>
+                <span id="pending-val" class="value" style="color: var(--danger);">0</span>
+            </div>
+        </section>
+
+        <section class="progress-card">
+            <div class="progress-info">
+                <span class="label">Overall Completion</span>
+                <div class="bar-bg">
+                    <div id="prog-bar" class="bar-fill"></div>
+                </div>
+            </div>
+            <div id="prog-percent" class="percent-display">0%</div>
+        </section>
+
+        <section class="form-section">
+            <form id="study-form">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" id="in-subject" placeholder="e.g. Computer Science" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group" style="flex: 2;">
+                        <label>Topic / Milestone</label>
+                        <input type="text" id="in-topic" placeholder="e.g. Master Neural Networks" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Target Date</label>
+                        <input type="date" id="in-date" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus-circle"></i> Create New Task
+                </button>
+            </form>
+        </section>
+
+        <section class="task-section">
+            <div class="task-header">
+                <h2>Your Learning Roadmap</h2>
+            </div>
+            <div id="main-task-list" class="task-list">
+                <!-- Tasks here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- UI Overlay Components -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.5rem;"></i>
+        <span id="toast-msg">Task added successfully!</span>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <i class="fas fa-exclamation-triangle"
+                style="font-size: 3rem; color: var(--danger); margin-bottom: 1rem;"></i>
+            <h3>Delete Task?</h3>
+            <p>This action cannot be undone. Are you sure you want to remove this milestone?</p>
+            <div class="modal-btns">
+                <button id="cancel-del" class="secondary-btn">Cancel</button>
+                <button id="confirm-del" class="danger-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
